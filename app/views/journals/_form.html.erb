@@ -14,18 +14,25 @@
     </div>
   <% end %>
  
-  <p>
-    <%= form.label :title %><br>
-    <%= form.text_field :title %>
-  </p>
+  <div class="container">
+    <p>
+      <%= form.label :title %><br>
+      <%= form.text_field :title, class: 'journalTitle'%>
+    </p>
+  </div>
  
-  <p>
-    <%= form.label :text %><br>
-    <%= form.text_area :text %>
-  </p>
+  <div class="container">
+    <p>
+      <%= form.label :text %><br>
+      <%= form.text_area :text, class: 'textBox'%>
+    </p>
+  </div>
  
-  <p>
-    <%= form.submit %>
-  </p>
+  <div class="container">
+    <p>
+      <%= form.submit class: 'btn btn-large btn-primary'%>
+    </p>
+  </div>
+
  
 <% end %>

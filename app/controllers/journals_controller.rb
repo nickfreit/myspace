@@ -18,7 +18,7 @@ class JournalsController < ApplicationController
 
     def create
         @journal = Journal.new(journal_params)
-
+        
         if @journal.save
             redirect_to @journal
         else

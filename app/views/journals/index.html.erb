@@ -1,23 +1,32 @@
 <h1>Listing Journals</h1>
-<%= link_to 'New Journal', new_journal_path %>
+<%= link_to 'New Journal', new_journal_path, class: 'btn btn-primary btn-large' %>
  
-<table>
+<table class="table">
   <tr>
     <th>Title</th>
+    <th>Date</th>
     <th>Text</th>
     <th></th>
     <th colspan="2"></th>
   </tr>
  
   <% @journals.each do |journal| %>
-    <tr>
-      <td><%= journal.title %></td>
-      <td><%= journal.text %></td>
-      <td><%= link_to 'Show', journal_path(journal) %></td>
-      <td><%= link_to 'Edit', edit_journal_path(journal) %></td>
+      <td><%= truncate(journal.title, length: 50) %></td>
+      <td><%= journal.created_at
+              .in_time_zone("Eastern Time (US & Canada)")
+              .strftime("%m-%d-%Y at %I:%M %p") %> 
+      </td>
+      <td><%= truncate(journal.text, length: 50) %></td>
+      <td><%= link_to 'Show', journal_path(journal), 
+              class: 'btn'%></td>
+      <td><%= link_to 'Edit', edit_journal_path(journal), 
+              class: 'btn' %></td>
       <td><%= link_to 'Destroy', journal_path(journal),
               method: :delete,
-              data: { confirm: 'Are you sure?' } %></td>
+              data: { confirm: 'Are you sure?' },
+              class: 'btn'%></td>
     </tr>
   <% end %>
 </table>
+
+<%= link_to 'Back', welcome_index_path, class: 'btn btn-large' %>

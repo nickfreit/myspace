@@ -1,11 +1,20 @@
-<p>
-  <strong>Title:</strong>
-  <%= @journal.title %>
-</p>
- 
-<p>
-  <strong>Text:</strong>
-  <%= @journal.text %>
-</p>
-<%= link_to 'Edit', edit_journal_path(@journal) %> |
-<%= link_to 'Back', journals_path %>
+<div class='container'>
+    
+  <h2><%=@journal.title %></h2>
+
+  <h5>
+  Created at: 
+    <%= @journal.created_at
+              .in_time_zone("Eastern Time (US & Canada)")
+              .strftime("%m-%d-%Y at %I:%M %p")
+    %>
+  </h5>
+
+  <pre><%= @journal.text %></pre>
+
+  <div>
+    <%= link_to 'Edit', edit_journal_path(@journal), class: 'btn btn-large'%>
+    <%= link_to 'Back', journals_path, class: 'btn btn-large'%>
+  </div>
+
+</div>
