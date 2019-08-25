@@ -1,0 +1,19 @@
+<%= form_with model: @todo, local: true do |form| %>
+ 
+
+ 
+  <div class="container">
+    <p>
+      <%= form.label :description %><br>
+      <%= form.text_field :description, class: 'titleBox'%>
+    </p>
+  </div>
+ 
+  <div class="container">
+    <p>
+      <%= form.submit class: 'btn btn-large btn-primary'%>
+    </p>
+  </div>
+
+ 
+<% end %>

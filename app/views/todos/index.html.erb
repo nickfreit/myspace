@@ -1,0 +1,16 @@
+<h1>Listing To Do's</h1>
+<%= link_to 'New Todo', new_todo_path, class: 'btn btn-primary btn-large' %>
+ 
+<table class="table">
+  <tr>
+    <th>Description</th>
+    <th colspan="2"></th>
+  </tr>
+ 
+  <% @todos.each do |todo| %>
+      <td><%= todo.description %></td>
+    </tr>
+  <% end %>
+</table>
+
+<%= link_to 'Back', welcome_index_path, class: 'btn btn-large' %>
